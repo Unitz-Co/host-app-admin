@@ -6,26 +6,18 @@ import DIV from '@vl/redata/DIV.macro';
 import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
 
-import Layout from '@uz/unitz-layout-web/LayoutMain';
-import ContentPageLayout from '@uz/unitz-ctf-theme/layouts/ContentPageLayout';
-import useRoute from '@vl/hooks/useGbRoute';
-
 import _ from 'lodash';
-import PageData from '../../data/PageDataQuery';
+import Layout from '@uz/unitz-layout-web/LayoutAdmin';
+import useRoute from '@vl/hooks/useGbRoute';
+import HomePage from '@uz/unitz-pages-admin/Home';
 
-const PageComponents = {
-  ContentPageLayout,
-};
+import PageData from '../../../data/PageDataQuery';
 
 export const component = (props) => {
   const pageContext = _.get(props, 'pageContext');
   // eslint-disable-next-line
   const route = useRoute();
   route.setPageContext(pageContext);
-
-  const pageLayout = _.get(pageContext, 'params.pageLayout');
-  const PageComponent = _.get(PageComponents, pageLayout);
-
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -35,8 +27,11 @@ export const component = (props) => {
           })}
           <SEO pageData={ctx.apply('ctf.findPage', { name: 'Homepage' })} />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
-          <Layout.POS name="app-body">{PageComponent ? <PageComponent /> : null}</Layout.POS>
-          <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'articleFooterSection' })}</Layout.POS>
+          <Layout.POS name="app-body">
+            <div className="app-row">
+              <HomePage />
+            </div>
+          </Layout.POS>
         </DIV>
       </Layout>
     </App>

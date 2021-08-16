@@ -219,6 +219,22 @@ const pageDataQuery = graphql`
         }
       }
     }
+    allSitePage {
+      nodes {
+        id
+        path
+        context {
+          id
+          slug
+          params {
+            navbar {
+              path
+              title
+            }
+          }
+        }
+      }
+    }
   }
 `;
 

@@ -2,10 +2,9 @@ const _ = require('lodash');
 const slugify = require('slugify');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
-routeStore.addRule('page', {
+routeStore.addRule('service', {
   url: (params) => {
-    const slug = _.get(params, 'slug') || _.get(params, 'name') || _.get(params, 'id');
-    return `/${slugify(slug)}`;
+    return `/settings/service`;
   },
   parse: (urlObject) => {
     const params = {};
@@ -15,6 +14,6 @@ routeStore.addRule('page', {
     return params;
   },
   match: (urlObject) => {
-    return urlObject.pathname === 'page';
+    return urlObject.pathname === 'service';
   },
 });
