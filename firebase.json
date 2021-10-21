@@ -1,54 +1,137 @@
 {
-  "hosting": {
-    "site": "unitz-admin",
-    "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "headers": [
-      {
-        "source": "**/*",
-        "headers": [
-          {
-            "key": "cache-control",
-            "value": "public, max-age=0, must-revalidate"
-          }
-        ]
+  "hosting": [
+    {
+      "target": "unitz-admin",
+      "public": "public",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "i18n": {
+        "root": "/"
       },
-      {
-        "source": "static/**",
-        "headers": [
-          {
-            "key": "cache-control",
-            "value": "public, max-age=31536000, immutable"
-          }
-        ]
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ]
+        },
+        {
+          "source": "**/*",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "static/**",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(css|js)",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "sw.js",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "page-data/**",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target": "dev-unitz-admin",
+      "public": "public",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "i18n": {
+        "root": "/"
       },
-      {
-        "source": "**/*.@(css|js)",
-        "headers": [
-          {
-            "key": "cache-control",
-            "value": "public, max-age=31536000, immutable"
-          }
-        ]
-      },
-      {
-        "source": "sw.js",
-        "headers": [
-          {
-            "key": "cache-control",
-            "value": "public, max-age=0, must-revalidate"
-          }
-        ]
-      },
-      {
-        "source": "page-data/**",
-        "headers": [
-          {
-            "key": "cache-control",
-            "value": "public, max-age=0, must-revalidate"
-          }
-        ]
-      }
-    ]
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ]
+        },
+        {
+          "source": "**/*",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "static/**",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(css|js)",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "sw.js",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "page-data/**",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "emulators": {
+    "hosting": {
+      "port": "9000"
+    }
   }
 }
