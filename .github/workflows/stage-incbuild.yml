@@ -1,4 +1,4 @@
-name: beta incbuild
+name: stage-incbuild
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
       - name: clone env
         uses: actions/checkout@v2
         with:
-          repository: Unitz-Co/envprod-app-web
+          repository: Unitz-Co/env-app-web
           path: config/env-app-web
           token: ${{ secrets.PAT_TOKEN }}
           persist-credentials: true
@@ -85,7 +85,7 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
           yarn build
-          yarn firebase:deploy
+          yarn firebase:deploy:dev
       - name: yarn build:inc
         working-directory: ${{env.working-directory}}
         if: steps.gatsbycachebuild.outputs.cache-hit == 'true'
@@ -93,7 +93,7 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
           yarn build:inc
-          yarn firebase:deploy
+          yarn firebase:deploy:dev
       - uses: iRoachie/slack-github-actions@v2.3.0
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
