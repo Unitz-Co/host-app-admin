@@ -4,7 +4,7 @@ import { ctx } from '@vl/redata';
 import DIV from '@vl/redata/DIV.macro';
 
 import HomePage from '@uz/unitz-pages-admin/Home';
-import App from '@uz/unitz-app-web/UserApp';
+import App from '@uz/unitz-app-web/AdminApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutAdmin';
 import SEO from '@uz/unitz-layout-web/SEO';
