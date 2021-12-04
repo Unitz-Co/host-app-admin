@@ -9,7 +9,7 @@ import SEO from '@uz/unitz-layout-web/SEO';
 import _ from 'lodash';
 import Layout from '@uz/unitz-layout-web/LayoutAdmin';
 import useRoute from '@vl/hooks/useGbRoute';
-import PayoutList from '@uz/unitz-pages-admin/PayoutList';
+import Payouts from '@uz/unitz-pages-admin/Payouts';
 
 import PageData from '../../../data/PageDataQuery';
 
@@ -29,7 +29,7 @@ export const component = (props) => {
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'AdminNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <div className="app-row">
-              <PayoutList />
+              <Payouts />
             </div>
           </Layout.POS>
         </DIV>

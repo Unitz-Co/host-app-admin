@@ -2,9 +2,9 @@ const _ = require('lodash');
 const slugify = require('slugify');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
-routeStore.addRule('account', {
+routeStore.addRule('courseEdit', {
   url: (params) => {
-    return `/advisor/account`;
+    return `/advisor/course/edit?id=${_.get(params, 'id')}`;
   },
   parse: (urlObject) => {
     const params = {};
@@ -14,6 +14,6 @@ routeStore.addRule('account', {
     return params;
   },
   match: (urlObject) => {
-    return urlObject.pathname === 'account';
+    return urlObject.pathname === 'advisor/course/edit';
   },
 });

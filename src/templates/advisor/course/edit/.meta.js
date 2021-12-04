@@ -6,17 +6,11 @@ exports.createPages = async (item, gatsby) => {
   // @update query
   return Promise.all(
     ['index'].map(() => {
-      const pagePath = 'advisor/account';
+      const pagePath = 'advisor/course/edit';
       console.log('creating page', pagePath);
       const pageContext = _.cloneDeep({
         id: pagePath,
         slug: pagePath,
-        params: {
-          navbar: {
-            title: 'Advisor/Accounts',
-            path: 'advisor/account',
-          },
-        },
       });
       return gatsby.actions.createPage({
         path: pagePath,

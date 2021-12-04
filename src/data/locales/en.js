@@ -186,6 +186,19 @@ const GbCtfProviderQuery_en = graphql`
         }
       }
     }
+    allSitePage {
+      nodes {
+        context {
+          params {
+            navbar {
+              path
+              title
+              url
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
