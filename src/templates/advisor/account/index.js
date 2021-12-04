@@ -26,7 +26,7 @@ export const component = (props) => {
             ctx.set('pageContext', pageContext);
           })}
           <SEO pageData={ctx.apply('ctf.findPage', { name: 'Homepage' })} />
-          <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
+          <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'AdminNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <div className="app-row">
               <AccountList />
