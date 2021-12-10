@@ -18,6 +18,12 @@ routeStore.addRule('course', {
   },
 });
 
+routeStore.addRule('course:user', {
+  url: (params) => {
+    return `${routeStore.getAppOrigin('user')}/course/detail?id=${_.get(params, 'id')}`;
+  },
+});
+
 routeStore.addRule('courseDetail', {
   url: (params) => {
     const id = _.get(params, 'id', 'unknown');

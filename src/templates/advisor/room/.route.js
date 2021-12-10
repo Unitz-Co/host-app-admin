@@ -17,3 +17,15 @@ routeStore.addRule('room', {
     return urlObject.pathname === 'advisor/course';
   },
 });
+
+routeStore.addRule('room:user', {
+  url: (params) => {
+    return `${routeStore.getAppOrigin('user')}/room?id=${_.get(params, 'id')}`;
+  },
+});
+
+routeStore.addRule('room:advisor', {
+  url: (params) => {
+    return `${routeStore.getAppOrigin('advisor')}/room?id=${_.get(params, 'id')}`;
+  },
+});
