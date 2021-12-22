@@ -76,8 +76,9 @@ routeStore.addRule('coursePreview', {
 });
 
 routeStore.addRule('courseAdd', {
-  url: () => {
-    return `/advisor/course/add`;
+  url: (params) => {
+    const id = _.get(params, 'id', 'unknown');
+    return `/advisor/course/add?id=${id}`;
   },
   parse: (urlObject) => {
     const params = {};
