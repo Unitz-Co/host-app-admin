@@ -91,3 +91,20 @@ routeStore.addRule('courseAdd', {
     return urlObject.pathname === 'advisor/course/add';
   },
 });
+
+routeStore.addRule('courseClone', {
+  url: (params) => {
+    const id = _.get(params, 'id', 'unknown');
+    return `/advisor/course/clone?id=${id}`;
+  },
+  parse: (urlObject) => {
+    const params = {};
+    for (let param in urlObject.searchParams) {
+      params[param] = urlObject.searchParams.get(param);
+    }
+    return params;
+  },
+  match: (urlObject) => {
+    return urlObject.pathname === 'course/clone';
+  },
+});
