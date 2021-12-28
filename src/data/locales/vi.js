@@ -186,6 +186,47 @@ const GbCtfProviderQuery_vi = graphql`
         }
       }
     }
+    allContentfulCategory(filter: { node_locale: { eq: "vi-VN" } }) {
+      nodes {
+        id: contentful_id
+        displayName
+        featured
+        highlight
+        highlightSlug
+        avatarUrl {
+          id
+          fixed {
+            src
+          }
+        }
+        icon
+        longText {
+          longText
+        }
+        slug
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        children: chidlren {
+          ... on ContentfulCategory {
+            id: contentful_id
+          }
+        }
+      }
+    }
     allSitePage {
       nodes {
         context {
