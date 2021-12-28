@@ -105,6 +105,6 @@ routeStore.addRule('courseClone', {
     return params;
   },
   match: (urlObject) => {
-    return urlObject.pathname === 'course/clone';
+    return urlObject.pathname === 'advisor/course/clone';
   },
 });
