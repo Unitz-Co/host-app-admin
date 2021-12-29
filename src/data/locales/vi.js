@@ -204,22 +204,6 @@ const GbCtfProviderQuery_vi = graphql`
           longText
         }
         slug
-        images {
-          fixed(width: 1600) {
-            width
-            height
-            src
-            srcSet
-          }
-        }
-        image {
-          fixed(width: 1600) {
-            width
-            height
-            src
-            srcSet
-          }
-        }
         children: chidlren {
           ... on ContentfulCategory {
             id: contentful_id
