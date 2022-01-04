@@ -20,6 +20,10 @@ routeStore.addRule('course', {
 
 routeStore.addRule('course:user', {
   url: (params) => {
+    if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
+      return `${routeStore.getAppOrigin('user')}/courses/${_.get(params, 'slug')}`;
+    }
+
     return `${routeStore.getAppOrigin('user')}/course/detail?id=${_.get(params, 'id')}`;
   },
 });
@@ -60,6 +64,10 @@ routeStore.addRule('courseEdit', {
 
 routeStore.addRule('coursePreview', {
   url: (params) => {
+    if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
+      return `${routeStore.getAppOrigin('user')}/courses/${_.get(params, 'slug')}`;
+    }
+
     const id = _.get(params, 'id', 'unknown');
     return `${routeStore.getAppOrigin('user')}/course/detail?id=${id}`;
   },
