@@ -2,6 +2,7 @@ const _ = require('lodash');
 const slugify = require('slugify');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 const querystring = require('querystring');
+
 routeStore.addRule('user/profile', {
   url: (params) => {
     return `/user/profile?id=${_.get(params, 'id')}`;
@@ -78,5 +79,23 @@ routeStore.addRule('coursePurchase', {
   },
   match: (urlObject) => {
     return urlObject.pathname === 'course/purchase';
+  },
+});
+
+routeStore.addRule('meCourseDetail', {
+  url: (params) => {
+    let search = `${querystring.stringify(_.pick(params, ['id']))}`;
+    search = search ? `?${search}` : '';
+    return `/advisor/course${search}`;
+  },
+  parse: (urlObject) => {
+    const params = {};
+    for (let param in urlObject.searchParams) {
+      params[param] = urlObject.searchParams.get(param);
+    }
+    return params;
+  },
+  match: (urlObject) => {
+    return urlObject.pathname === 'me/course';
   },
 });
