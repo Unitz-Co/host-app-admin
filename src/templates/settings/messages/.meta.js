@@ -6,15 +6,15 @@ exports.createPages = async (item, gatsby) => {
   // @update query
   return Promise.all(
     ['index'].map(() => {
-      const pagePath = 'settings/message';
+      const pagePath = 'settings/messages';
       console.log('creating page', pagePath);
       const pageContext = _.cloneDeep({
         id: pagePath,
         slug: pagePath,
         params: {
           navbar: {
-            title: 'Settings/Message',
-            path: 'settings/message',
+            title: 'Settings/Messages',
+            path: 'settings/messages',
           },
         },
       });
