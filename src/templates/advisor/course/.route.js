@@ -36,7 +36,6 @@ routeStore.addRule('course:referral', {
 routeStore.addRule('course:user', {
   url: (params) => {
     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
-      console.log({ params });
       return `${routeStore.getAppOrigin('user')}/courses/${_.get(params, 'slug')}`;
     }
 
