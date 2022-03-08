@@ -18,6 +18,21 @@ routeStore.addRule('course', {
   },
 });
 
+routeStore.addRule('course:referral', {
+  url: (params) => {
+    let referralParams = '';
+    const user_id = _.get(params, 'user_id');
+    if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
+      if (_.get(params, 'user_id')) {
+        referralParams = `?referral_code=${user_id}`;
+      }
+      return `${routeStore.getAppOrigin('user')}/courses/${_.get(params, 'slug')}${referralParams}`;
+    }
+    referralParams = `&referral_code=${user_id}`;
+    return `${routeStore.getAppOrigin('user')}/course/detail?id=${_.get(params, 'id')}${referralParams}`;
+  },
+});
+
 routeStore.addRule('course:user', {
   url: (params) => {
     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
@@ -27,7 +42,6 @@ routeStore.addRule('course:user', {
     return `${routeStore.getAppOrigin('user')}/course/detail?id=${_.get(params, 'id')}`;
   },
 });
-
 routeStore.addRule('courseDetail', {
   url: (params) => {
     const id = _.get(params, 'id', 'unknown');
