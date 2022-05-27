@@ -10,7 +10,7 @@ import Layout from '@uz/unitz-layout-web/LayoutAdmin';
 import SEO from '@uz/unitz-layout-web/SEO';
 
 import PageData from '../data/PageDataQuery';
-
+// build staging
 const HomeIndex = (props) => {
   return (
     <App>
