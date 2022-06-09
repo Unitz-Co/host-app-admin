@@ -102,6 +102,7 @@
     "build:inc": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "firebase:deploy": "firebase deploy --only hosting:unitz-admin",
     "build:trigger": "../../../config/ws-scripts/cicd/trigger.sh",
+    "build:trigger:staging": "../../../config/ws-scripts/cicd/trigger_staging.sh",
     "firebase:deploy:dev": "firebase deploy --only hosting:dev-unitz-admin",
     "unitzvn:deploy": "rclone sync public remote:httpdocs",
     "unitzvn:sync": "rsync -a public/ ../../../unitz-vn-app && cd ../../../unitz-vn-app && git add . && git commit -m deploy && git push origin master",
