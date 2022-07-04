@@ -6,12 +6,17 @@ exports.createPages = async (item, gatsby) => {
   // @update query
   return Promise.all(
     ['index'].map(() => {
-      const pagePath = 'support/rcm';
+      const pagePath = 'support/rcms';
       console.log('creating page', pagePath);
       const pageContext = _.cloneDeep({
         id: pagePath,
         slug: pagePath,
-        params: {},
+        params: {
+          navbar: {
+            title: 'Supports/Request Course Matching',
+            path: 'support/rcms',
+          },
+        },
       });
       return gatsby.actions.createPage({
         path: pagePath,

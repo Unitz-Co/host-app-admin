@@ -1,11 +1,10 @@
 const _ = require('lodash');
-// const slugify = require('slugify');
-
+const slugify = require('slugify');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
-routeStore.addRule('support/rcm', {
+routeStore.addRule('support/rcms', {
   url: (params) => {
-    return `/support/rcm?id=${_.get(params, 'id')}`;
+    return `/support/rcms`;
   },
   parse: (urlObject) => {
     const params = {};
@@ -15,6 +14,6 @@ routeStore.addRule('support/rcm', {
     return params;
   },
   match: (urlObject) => {
-    return urlObject.pathname === 'support/rcm';
+    return urlObject.pathname === 'support/rcms';
   },
 });
